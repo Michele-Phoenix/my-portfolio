@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | System Active</title>
+    <style>
+        :root { --main-color: #00ff41; --bg-color: #0a0a0a; }
+        body { background: var(--bg-color); color: var(--main-color); font-family: 'Courier New', Courier, monospace; 
+               display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; overflow: hidden; }
+        
+        .container { border: 1px solid var(--main-color); padding: 30px; border-radius: 5px; 
+                     box-shadow: 0 0 15px rgba(0,255,65,0.1); width: 90%; max-width: 600px; position: relative; }
+        
+        /* Progress Bar Animation */
+        .progress-container { width: 100%; background: #222; height: 10px; margin: 20px 0; border-radius: 5px; overflow: hidden; }
+        .progress-bar { width: 65%; height: 100%; background: var(--main-color); box-shadow: 0 0 10px var(--main-color); animation: load 3s ease-in-out; }
+        @keyframes load { from { width: 0%; } to { width: 65%; } }
+
+        /* Glitch Effect for Name */
+        h1 { font-size: 2rem; margin: 10px 0; color: #fff; text-transform: uppercase; }
+        h1:hover { animation: glitch 0.3s linear infinite; }
+        @keyframes glitch {
+            0% { transform: translate(2px, 2px); }
+            25% { transform: translate(-2px, -2px); }
+            50% { transform: translate(-2px, 2px); }
+            100% { transform: translate(2px, -2px); }
+        }
+
+        .log-entry { font-size: 0.85rem; color: #888; margin: 5px 0; }
+        .highlight { color: #ffb86c; }
+        .cursor { display: inline-block; width: 10px; height: 20px; background: var(--main-color); animation: blink 1s infinite; vertical-align: middle; }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        
+        a { color: white; text-decoration: none; border-bottom: 1px dotted white; transition: 0.3s; }
+        a:hover { color: var(--main-color); border-bottom: 1px solid var(--main-color); background: rgba(0,255,65,0.1); }
+        
+        .scanline { width: 100%; height: 2px; background: rgba(0, 255, 65, 0.1); position: absolute; top: 0; left: 0; animation: scan 4s linear infinite; }
+        @keyframes scan { from { top: 0; } to { top: 100%; } }
+    </style>
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="container">
+        <p>> SOURCE: USER_AUTH_SUCCESS</p>
+        <p>> LOADING ASSETS... <span class="highlight">65%</span></p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <h1>[YOUR NAME]</h1>
+        <p>Full-Stack Developer In Training // Digital Architect</p>
+
+        <div style="margin: 25px 0; border-left: 2px solid #333; padding-left: 15px;">
+            <p class="log-entry">> [LOG_01]: Updating Hero Section...</p>
+            <p class="log-entry">> [LOG_02]: Deploying Project "WeatherApp" to production...</p>
+            <p class="log-entry">> [LOG_03]: Cleaning up CSS spaghetti...</p>
+        </div>
+
+        <p class="log-entry">// REACH OUT THROUGH THE SECURE TERMINAL:</p>
+        <p>
+            <a href="YOUR_LINKEDIN_URL">LINKEDIN</a> | 
+            <a href="YOUR_GITHUB_URL">GITHUB</a> | 
+            <a href="mailto:your@email.com">EMAIL_CLIENT</a>
+        </p>
+        
+        <p>> SYSTEM_HALT: <span class="highlight">WAITING_FOR_DEPLOY</span><span class="cursor"></span></p>
+    </div>
+</body>
+</html>
