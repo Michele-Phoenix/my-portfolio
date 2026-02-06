@@ -3,69 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | System Active</title>
+    <title>My Portfolio</title>
     <style>
-        :root { --main-color: #00ff41; --bg-color: #0a0a0a; }
-        body { background: var(--bg-color); color: var(--main-color); font-family: 'Courier New', Courier, monospace; 
-               display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; overflow: hidden; }
+        :root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--light); color: var(--dark); line-height: 1.6; }
         
-        .container { border: 1px solid var(--main-color); padding: 30px; border-radius: 5px; 
-                     box-shadow: 0 0 15px rgba(0,255,65,0.1); width: 90%; max-width: 600px; position: relative; }
-        
-        /* Progress Bar Animation */
-        .progress-container { width: 100%; background: #222; height: 10px; margin: 20px 0; border-radius: 5px; overflow: hidden; }
-        .progress-bar { width: 65%; height: 100%; background: var(--main-color); box-shadow: 0 0 10px var(--main-color); animation: load 3s ease-in-out; }
-        @keyframes load { from { width: 0%; } to { width: 65%; } }
+        /* Header Section */
+        header { background: white; padding: 100px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        h1 { font-size: 3rem; margin: 0; color: var(--dark); }
+        .role { font-size: 1.5rem; color: var(--primary); font-weight: 600; }
+        .bio { max-width: 600px; margin: 20px auto; color: #64748b; }
 
-        /* Glitch Effect for Name */
-        h1 { font-size: 2rem; margin: 10px 0; color: #fff; text-transform: uppercase; }
-        h1:hover { animation: glitch 0.3s linear infinite; }
-        @keyframes glitch {
-            0% { transform: translate(2px, 2px); }
-            25% { transform: translate(-2px, -2px); }
-            50% { transform: translate(-2px, 2px); }
-            100% { transform: translate(2px, -2px); }
-        }
+        /* Projects Grid */
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Project Cards */
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #e2e8f0; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .card-img { width: 100%; height: 200px; background: #cbd5e1; display: flex; align-items: center; justify-content: center; color: #94a3b8; }
+        .card-content { padding: 20px; }
+        .card-title { font-size: 1.25rem; margin: 0 0 10px 0; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; }
 
-        .log-entry { font-size: 0.85rem; color: #888; margin: 5px 0; }
-        .highlight { color: #ffb86c; }
-        .cursor { display: inline-block; width: 10px; height: 20px; background: var(--main-color); animation: blink 1s infinite; vertical-align: middle; }
-        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
-        
-        a { color: white; text-decoration: none; border-bottom: 1px dotted white; transition: 0.3s; }
-        a:hover { color: var(--main-color); border-bottom: 1px solid var(--main-color); background: rgba(0,255,65,0.1); }
-        
-        .scanline { width: 100%; height: 2px; background: rgba(0, 255, 65, 0.1); position: absolute; top: 0; left: 0; animation: scan 4s linear infinite; }
-        @keyframes scan { from { top: 0; } to { top: 100%; } }
+        footer { text-align: center; padding: 40px; color: #94a3b8; }
     </style>
 </head>
 <body>
-    <div class="scanline"></div>
-    <div class="container">
-        <p>> SOURCE: USER_AUTH_SUCCESS</p>
-        <p>> LOADING ASSETS... <span class="highlight">65%</span></p>
+
+<header>
+    <h1>Hi, I'm [Your Name]</h1>
+    <div class="role">I am a [Your Profession/Role]</div>
+    <p class="bio">Welcome to my space. I build solutions and create digital experiences. Check out my latest work below.</p>
+</header>
+
+<div class="container">
+    <h2 style="text-align: center; margin-bottom: 40px;">My Projects</h2>
+    <div class="grid">
         
-        <div class="progress-container">
-            <div class="progress-bar"></div>
+        <div class="card">
+            <div class="card-img">Project Preview Image</div>
+            <div class="card-content">
+                <h3 class="card-title">Project One Name</h3>
+                <p>A short description of what this project does and the tech you used.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
         </div>
 
-        <h1>[YOUR NAME]</h1>
-        <p>Full-Stack Developer In Training // Digital Architect</p>
-
-        <div style="margin: 25px 0; border-left: 2px solid #333; padding-left: 15px;">
-            <p class="log-entry">> [LOG_01]: Updating Hero Section...</p>
-            <p class="log-entry">> [LOG_02]: Deploying Project "WeatherApp" to production...</p>
-            <p class="log-entry">> [LOG_03]: Cleaning up CSS spaghetti...</p>
+        <div class="card">
+            <div class="card-img">Project Preview Image</div>
+            <div class="card-content">
+                <h3 class="card-title">Project Two Name</h3>
+                <p>A short description of what this project does and the tech you used.</p>
+                <a href="#" class="btn">View Project</a>
+            </div>
         </div>
 
-        <p class="log-entry">// REACH OUT THROUGH THE SECURE TERMINAL:</p>
-        <p>
-            <a href="YOUR_LINKEDIN_URL">LINKEDIN</a> | 
-            <a href="YOUR_GITHUB_URL">GITHUB</a> | 
-            <a href="mailto:your@email.com">EMAIL_CLIENT</a>
-        </p>
-        
-        <p>> SYSTEM_HALT: <span class="highlight">WAITING_FOR_DEPLOY</span><span class="cursor"></span></p>
-    </div>
+        </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 [Your Name]. Built with grit.</p>
+</footer>
+
 </body>
 </html>
