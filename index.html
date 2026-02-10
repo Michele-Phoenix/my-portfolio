@@ -3,84 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaneza Michèle-Phœnix | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <title>Kaneza Michèle-Phœnix | RCA Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --card: #111111;
-            --accent: #007AFF; /* Tech Blue */
+            --bg: #080808;
+            --card: #121212;
+            --accent: #007AFF; 
             --text-main: #ffffff;
-            --text-dim: #a1a1a1;
+            --text-dim: #999999;
             --border: #222222;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; }
 
-        /* Header & Contact */
-        header { border-bottom: 1px solid var(--border); padding-bottom: 40px; margin-bottom: 50px; }
-        h1 { font-size: 3rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 10px; }
-        .location { color: var(--accent); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .contact-info { margin-top: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
-        .contact-info a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        .contact-info a:hover { color: var(--white); }
+        /* Header */
+        header { border-bottom: 1px solid var(--border); padding-bottom: 40px; margin-bottom: 50px; position: relative; }
+        .location { color: var(--accent); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        h1 { font-size: clamp(2.5rem, 7vw, 3.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 15px; }
+        .contact-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+        .contact-bar a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; transition: 0.3s; border-bottom: 1px solid transparent; }
+        .contact-bar a:hover { color: var(--text-main); border-bottom: 1px solid var(--accent); }
+
+        /* The "Juicy" Button */
+        .download-btn { display: inline-block; padding: 12px 25px; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,122,255,0.3); }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,122,255,0.4); }
 
         /* Sections */
         section { margin-bottom: 60px; }
-        h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-dim); margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px; }
+        h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 25px; display: flex; align-items: center; }
+        h2::after { content: ""; flex: 1; height: 1px; background: var(--border); margin-left: 20px; }
 
-        /* Summary */
-        .summary { font-size: 1.2rem; color: #ccc; font-weight: 300; line-height: 1.8; }
+        .summary { font-size: 1.15rem; color: #ddd; font-weight: 300; line-height: 1.7; }
 
-        /* Experience/Education Cards */
+        /* Experience Cards */
         .card { background: var(--card); border: 1px solid var(--border); padding: 30px; border-radius: 16px; margin-bottom: 20px; transition: 0.3s; }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .card-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .card-title { font-weight: 700; font-size: 1.2rem; }
-        .card-date { color: var(--accent); font-size: 0.8rem; font-weight: 700; }
-        .card ul { list-style: none; margin-top: 15px; }
-        .card ul li { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 8px; padding-left: 20px; position: relative; }
-        .card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+        .card:hover { border-color: #333; background: #161616; }
+        .card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .card-title { font-weight: 700; font-size: 1.2rem; color: var(--text-main); }
+        .card-date { color: var(--text-dim); font-size: 0.8rem; font-weight: 600; }
+        .card-subtitle { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 15px; }
+        
+        ul { list-style: none; }
+        li { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 10px; padding-left: 20px; position: relative; }
+        li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
 
         /* Skills Grid */
-        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .skill-item { background: var(--card); padding: 15px 20px; border-radius: 10px; border: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .skill-name { font-weight: 600; font-size: 0.9rem; }
-        .skill-bar { height: 4px; width: 50px; background: var(--accent); border-radius: 2px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .skill-tag { background: var(--card); padding: 12px 20px; border-radius: 10px; border: 1px solid var(--border); font-size: 0.85rem; font-weight: 600; color: #eee; }
 
-        /* Languages & Interests */
-        .badge-group { display: flex; gap: 10px; flex-wrap: wrap; }
-        .badge { background: #1a1a1a; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; border: 1px solid var(--border); }
+        footer { text-align: center; color: #444; font-size: 0.8rem; padding-top: 50px; border-top: 1px solid var(--border); }
 
-        footer { text-align: center; color: var(--text-dim); font-size: 0.8rem; margin-top: 100px; padding-top: 30px; border-top: 1px solid var(--border); }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .skills-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 600px) { h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <p class="location">Based in Nyabihu, Rwanda</p>
-        <h1>Kaneza Michèle-Phœnix</h1>
-        <div class="contact-info">
+        <span class="location">Nyabihu, Rwanda</span>
+        <h1>Kaneza <br>Michèle-Phœnix</h1>
+        <div class="contact-bar">
             <a href="mailto:kamichelephoenix@gmail.com">kamichelephoenix@gmail.com</a>
             <a href="tel:+250788888888">+250 788 888 888</a>
         </div>
+        <a href="CV.pdf" class="download-btn" download>Download Curriculum Vitae</a>
     </header>
 
     <section>
         <h2>Professional Summary</h2>
         <p class="summary">
-            Computer Science and AI student at <strong>Rwanda Coding Academy</strong>. 
-            Passionate about ethical AI solutions and the digital transformation of healthcare systems. 
-            Thriving in collaborative, high-pressure environments to build social impact software.
+            Dedicated <strong>Computer Science and AI student</strong> at Rwanda Coding Academy. 
+            Driven by a passion for social impact and the digital transformation of healthcare systems. 
+            Committed to developing ethical AI solutions and thriving in collaborative, high-pressure environments.
         </p>
     </section>
 
@@ -89,13 +87,12 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">Rwanda Coding Academy (RCA)</span>
-                <span class="card-date">2024 — PRESENT</span>
+                <span class="card-date">2024 — Present</span>
             </div>
-            <p style="color:var(--accent)">Advanced Level Diploma in Software Development</p>
+            <p class="card-subtitle">Diploma / Advanced Level in Software Development</p>
             <ul>
-                <li>Advanced Python Programming & AI Fundamentals</li>
-                <li>Data Structures, Algorithms & SQL Database Systems</li>
-                <li>Applied Mathematics for Computing</li>
+                <li>Advanced Coursework: Python, AI Fundamentals, Data Structures & Algorithms.</li>
+                <li>Technical Focus: Database Systems (SQL), Web Technologies, and Applied Mathematics.</li>
             </ul>
         </div>
     </section>
@@ -103,45 +100,35 @@
     <section>
         <h2>Technical Projects</h2>
         <div class="card">
-            <div class="card-title">AI-Based Prediction Model</div>
-            <ul>
-                <li>Developed a machine learning model for outcome prediction using historical datasets.</li>
-                <li>Handled full-cycle data preprocessing, training, and documentation.</li>
+            <span class="card-title">AI-Based Prediction Model</span>
+            <ul style="margin-top:15px;">
+                <li>Developed a machine learning model to predict outcomes using historical data sets.</li>
+                <li>Conducted full-cycle data preprocessing, model training, and evaluation.</li>
             </ul>
         </div>
         <div class="card">
-            <div class="card-title">Health Data Analysis</div>
-            <ul>
-                <li>Visualized disease occurrence trends using Python for public health insights.</li>
-                <li>Processed structured datasets to support data-driven decision making.</li>
+            <span class="card-title">Health Data Analysis</span>
+            <ul style="margin-top:15px;">
+                <li>Analyzed complex health datasets to visualize disease occurrence trends.</li>
+                <li>Utilized Python for data cleaning and processing of structured information.</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Technical Skills</h2>
+        <h2>Technical Stack</h2>
         <div class="skills-grid">
-            <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"></div></div>
-            <div class="skill-item"><span class="skill-name">AI / ML Fundamentals</span><div class="skill-bar"></div></div>
-            <div class="skill-item"><span class="skill-name">SQL Database</span><div class="skill-bar"></div></div>
-            <div class="skill-item"><span class="skill-name">HTML / CSS / JS</span><div class="skill-bar"></div></div>
-            <div class="skill-item"><span class="skill-name">Data Privacy</span><div class="skill-bar"></div></div>
-            <div class="skill-item"><span class="skill-name">Health Tech</span><div class="skill-bar"></div></div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Languages</h2>
-        <div class="badge-group">
-            <div class="badge">English (Professional)</div>
-            <div class="badge">Kinyarwanda (Native)</div>
-            <div class="badge">French (Academic)</div>
-            <div class="badge">Spanish (Basic)</div>
+            <div class="skill-tag">Python / AI / ML</div>
+            <div class="skill-tag">SQL (Databases)</div>
+            <div class="skill-tag">HTML / CSS / JavaScript</div>
+            <div class="skill-tag">Data Privacy & Ethics</div>
+            <div class="skill-tag">Digital Healthcare Tech</div>
+            <div class="skill-tag">Problem Solving</div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kaneza Michèle-Phœnix // Built for RCA Portfolio</p>
+        <p>&copy; 2026 Kaneza Michèle-Phœnix • Designed for Academic Excellence</p>
     </footer>
 </div>
 
