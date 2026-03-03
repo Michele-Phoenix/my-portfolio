@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaneza Michèle-Phœnix | AI Developer & Researcher</title>
+<title>Kaneza Michèle-Phœnix | AI Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -25,123 +25,109 @@ body{
   background:var(--bg);
   color:var(--text);
   padding:40px 20px;
-  overflow-x: hidden;
 }
 
-/* BACKGROUND DECORATION */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 10% 10%, rgba(0, 212, 255, 0.05), transparent 40%),
-                radial-gradient(circle at 90% 90%, rgba(0, 212, 255, 0.03), transparent 40%);
-    z-index: -1;
-}
-
-/* GRID */
+/* GRID SYSTEM - Reconfigured for Center Focus */
 .bento-grid{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:minmax(140px,auto);
-  gap:18px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(160px, auto);
+  gap: 18px;
 }
 
-/* TILE SYSTEM */
+/* TILE STYLING */
 .tile{
   background:var(--tile);
   border:1px solid var(--border);
   border-radius:32px;
-  padding:32px;
+  padding:28px;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   position:relative;
   overflow:hidden;
-  backdrop-filter: blur(10px);
 }
 
 .tile:hover{
   border-color:var(--accent);
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,212,255,0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-.hero{ grid-column:span 3; grid-row:span 2; background: linear-gradient(145deg, #16161a, #0f0f12); }
-.pic-tile{ padding:0; overflow:hidden; grid-column: span 1; grid-row: span 1; }
-.wide-tile{ grid-column:span 2; }
-.full-tile{ grid-column:span 4; }
-
-/* TEXT STYLES */
-h1{ font-size:clamp(2.5rem,7vw,4rem); line-height:0.9; margin-bottom:20px; letter-spacing: -2px; font-weight: 800; }
-h2{ font-size:.7rem; color:var(--accent); letter-spacing:3px; text-transform:uppercase; margin-bottom:15px; font-weight: 700; }
-h3{ font-size: 1.3rem; margin-bottom: 10px; }
-p{ color:var(--muted); font-size:.95rem; line-height: 1.6; }
-
-.profile-img{ width:100%; height:100%; object-fit:cover; transition: 0.5s; }
-.tile:hover .profile-img { transform: scale(1.1); }
-
-/* LANGUAGES SECTION */
-.lang-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-    margin-top: 10px;
+/* CENTRAL IMAGE STYLING */
+.pic-tile {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    padding: 0;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    animation: glow-breathe 4s infinite ease-in-out;
 }
-.lang-box {
-    background: var(--glass);
-    padding: 15px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
+
+@keyframes glow-breathe {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.2); border-color: var(--accent); }
+    50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.5); border-color: #ffffff; }
 }
-.lang-box strong { display: block; color: var(--text); font-size: 0.9rem; }
-.lang-box span { color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* BENTO POSITIONS */
+.hero-left { grid-column: 1 / 2; grid-row: 1 / 2; }
+.hero-right { grid-column: 3 / 4; grid-row: 1 / 2; }
+.wide-tile { grid-column: span 2; }
+.full-tile { grid-column: span 3; }
+
+/* TEXT */
+h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1; margin-bottom: 10px; }
+h2 { font-size: .65rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+p { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+
+/* LANGUAGES */
+.lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.lang-tag { background: var(--glass); padding: 8px; border-radius: 12px; border: 1px solid var(--border); font-size: 0.8rem; text-align: center; }
 
 /* PROJECTS */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 10px;
-}
-.project-card {
-  background: var(--glass);
-  padding: 25px;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  transition: 0.3s;
-}
-.project-card:hover { background: rgba(0, 212, 255, 0.03); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px; }
+.project-card { background: var(--glass); padding: 20px; border-radius: 20px; border: 1px solid var(--border); }
 
-/* EDUCATION PROGRESS BARS */
-.edu-item {
-    margin-bottom: 15px;
-}
-.edu-header { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px; }
-.progress-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--accent); border-radius: 10px; width: 0; transition: 1.5s ease-out; }
+/* PROGRESS BARS */
+.skill-bar { height: 4px; background: rgba(255,255,255,0.05); border-radius: 10px; margin-top: 5px; overflow: hidden; }
+.fill { height: 100%; background: var(--accent); width: 0; transition: 1.5s ease-in-out; }
 
-/* ANIMATIONS */
-.reveal { opacity: 0; transform: translateY(40px); transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+/* ANIMATION */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
 .reveal.show { opacity: 1; transform: translateY(0); }
-.reveal.show .progress-fill { width: 90%; } /* Default fill */
+.reveal.show .fill { width: 90%; }
 
 /* BUTTON */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 25px;
+  display: inline-block;
+  margin-top: 15px;
   background: var(--accent);
   color: #000;
-  padding: 14px 30px;
-  border-radius: 18px;
+  padding: 10px 20px;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 800;
-  transition: 0.3s;
+  font-weight: 700;
+  font-size: 0.85rem;
 }
-.btn:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); }
 
-@media(max-width:900px){ .bento-grid{grid-template-columns:repeat(2,1fr);} .hero,.full-tile{grid-column:span 2;} }
-@media(max-width:520px){ .bento-grid{grid-template-columns:1fr;} .hero,.wide-tile,.full-tile{grid-column:span 1;} }
+/* RESPONSIVE */
+@media(max-width: 900px){
+  .bento-grid { grid-template-columns: 1fr 1fr; }
+  .pic-tile { grid-column: 1 / 2; grid-row: 1 / 2; }
+  .hero-left { grid-column: 2 / 3; }
+  .hero-right, .full-tile { grid-column: span 2; }
+}
+@media(max-width: 600px){
+  .bento-grid { grid-template-columns: 1fr; }
+  .tile, .hero-left, .hero-right, .pic-tile, .wide-tile, .full-tile { grid-column: span 1; grid-row: auto; }
+}
 </style>
 </head>
 
@@ -149,162 +135,93 @@ p{ color:var(--muted); font-size:.95rem; line-height: 1.6; }
 
 <div class="bento-grid">
 
-<div class="tile hero reveal">
-  <h2>Engineering for Impact</h2>
-  <h1>Kaneza<br>Michèle-Phœnix</h1>
-  <p style="font-size: 1.1rem; max-width: 600px;">
-    AI Developer & Researcher at <strong>Rwanda Coding Academy</strong>. 
-    I specialize in bridging the gap between complex data and human-centric healthcare solutions.
-  </p>
-  <div style="display:flex; gap: 15px;">
-      <a href="mailto:kamichelephoenix@gmail.com" class="btn">Get in Touch</a>
-      <a href="#" class="btn" style="background: transparent; color: white; border: 1px solid var(--border);">Download CV</a>
+  <div class="tile hero-left reveal">
+    <h2>The Developer</h2>
+    <h1>Kaneza<br>Michèle-Phœnix</h1>
+    <p>AI Student @ RCA. Shaping the future of African health-tech.</p>
   </div>
-</div>
 
-<div class="tile pic-tile reveal">
-  <img src="profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/400x400?text=KMP'">
-</div>
-
-<div class="tile reveal" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-    <h2 id="greet">Available</h2>
-    <div id="clock" style="font-size: 1.8rem; font-weight: 800; color: var(--text);">00:00:00</div>
-    <p style="font-size: 0.7rem; margin-top: 5px;">KIGALI, RWANDA (GMT+2)</p>
-</div>
-
-<div class="tile wide-tile reveal">
-  <h2>Research Focus</h2>
-  <div style="margin-bottom: 20px;">
-      <h3 style="color: var(--accent);">Predictive Health Modeling</h3>
-      <p>Using neural networks to identify patterns in clinical data for early-stage disease detection in rural populations.</p>
+  <div class="tile pic-tile reveal">
+    <img src="profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/400x400?text=KMP'">
   </div>
-  <div>
-      <h3 style="color: var(--accent);">Eco-Alert Early Warning</h3>
-      <p>Building IoT-integrated AI systems for real-time natural hazard monitoring and community notification.</p>
-  </div>
-</div>
 
-<div class="tile wide-tile reveal">
-    <h2>Global Communication</h2>
-    <p style="margin-bottom: 15px;">Bridging diverse cultures and technical teams through multi-lingual proficiency.</p>
-    <div class="lang-container">
-        <div class="lang-box">
-            <span>Native</span>
-            <strong>Kinyarwanda</strong>
+  <div class="tile hero-right reveal">
+    <h2>Contact</h2>
+    <p style="margin-bottom: 5px;">kamichelephoenix@gmail.com</p>
+    <p>+250 788 888 888</p>
+    <a href="mailto:kamichelephoenix@gmail.com" class="btn">Email Me</a>
+  </div>
+
+  <div class="tile wide-tile reveal">
+    <h2>Key Research</h2>
+    <h3 style="color: var(--accent); font-size: 1rem;">Predictive Health AI</h3>
+    <p>Developing neural networks for early diagnosis in rural communities.</p>
+    <div style="margin-top:15px;">
+        <h3 style="color: var(--accent); font-size: 1rem;">Eco-Alert Early Warning</h3>
+        <p>IoT systems for real-time natural hazard monitoring.</p>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Global Reach</h2>
+    <div class="lang-grid">
+        <div class="lang-tag">KN • Native</div>
+        <div class="lang-tag">EN • Fluent</div>
+        <div class="lang-tag">FR • Proficient</div>
+        <div class="lang-tag">ES • Basic</div>
+    </div>
+  </div>
+
+  <div class="tile full-tile reveal">
+    <h2>Active Portfolio</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3 style="font-size: 1rem;">RFID Top-Up System</h3>
+            <p style="font-size: 0.8rem;">Secure balance management for campus payments.</p>
         </div>
-        <div class="lang-box">
-            <span>Fluent / Academic</span>
-            <strong>English</strong>
+        <div class="project-card">
+            <h3 style="font-size: 1rem;">RCA Camp Platform</h3>
+            <p style="font-size: 0.8rem;">Optimized student orientation web experience.</p>
         </div>
-        <div class="lang-box">
-            <span>Professional</span>
-            <strong>French</strong>
-        </div>
-        <div class="lang-box">
-            <span>Basic / Conversational</span>
-            <strong>Spanish</strong>
+        <div class="project-card">
+            <h3 style="font-size: 1rem;">HealthViz Dashboard</h3>
+            <p style="font-size: 0.8rem;">Interactive visualization for medical data analysis.</p>
         </div>
     </div>
-</div>
+  </div>
 
-<div class="tile full-tile reveal">
-  <h2>Portfolio Projects</h2>
-  <div class="projects-grid">
-      <div class="project-card">
-          <h3>RFID Top-Up System</h3>
-          <p>Full-stack balance management for campus payments. Built with focus on security and hardware integration.</p>
-          <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: block;">GitHub Source →</a>
-      </div>
-      <div class="project-card">
-          <h3>Health-AI Dashboard</h3>
-          <p>Real-time visualization of machine learning predictions for hospital resource management.</p>
-          <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: block;">Case Study →</a>
-      </div>
-      <div class="project-card">
-          <h3>RCA Camp Platform</h3>
-          <p>Optimized web experience for student orientation and logistics management.</p>
-          <a href="https://github.com/Michele-Phoenix/RCA-camp" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold; margin-top: 10px; display: block;">GitHub Source →</a>
-      </div>
+  <div class="tile wide-tile reveal">
+    <h2>Academic roadmap</h2>
+    <div style="margin-bottom: 10px;">
+        <p style="display:flex; justify-content:space-between;"><span>Software Engineering</span><span>95%</span></p>
+        <div class="skill-bar"><div class="fill" style="width: 95%;"></div></div>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <p style="display:flex; justify-content:space-between;"><span>Machine Learning</span><span>88%</span></p>
+        <div class="skill-bar"><div class="fill" style="width: 88%;"></div></div>
+    </div>
   </div>
-</div>
 
-<div class="tile reveal">
-  <h2>Technical Stack</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-      <span style="background: var(--glass); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border);">Python (TensorFlow)</span>
-      <span style="background: var(--glass); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border);">JavaScript (React)</span>
-      <span style="background: var(--glass); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border);">PostgreSQL</span>
-      <span style="background: var(--glass); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border);">FastAPI</span>
-      <span style="background: var(--glass); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border);">Git/CI-CD</span>
-      <span style="background: var(--glass); padding: 5px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border);">Pandas/NumPy</span>
+  <div class="tile reveal">
+    <h2>Honors</h2>
+    <p style="font-size: 0.8rem;">• Wavumbuzi Top Tier Award</p>
+    <p style="font-size: 0.8rem;">• RCA Hackathon Finalist</p>
+    <p style="font-size: 0.8rem;">• Google AI Certificate</p>
   </div>
-</div>
-
-<div class="tile reveal">
-  <h2>Academic Roadmap</h2>
-  <div class="edu-item">
-      <div class="edu-header"><span>Software Engineering @ RCA</span><span>95%</span></div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
-  </div>
-  <div class="edu-item">
-      <div class="edu-header"><span>Machine Learning Ops</span><span>88%</span></div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 88%;"></div></div>
-  </div>
-  <div class="edu-item">
-      <div class="edu-header"><span>Distributed Systems</span><span>82%</span></div>
-      <div class="progress-bg"><div class="progress-fill" style="width: 82%;"></div></div>
-  </div>
-  <p style="font-size: 0.75rem; margin-top: 10px;">Focus: Ethical AI & Health Informatics</p>
-</div>
-
-<div class="tile full-tile reveal">
-  <h2>Credentials & Honors</h2>
-  <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-      <div class="project-card" style="padding: 15px;">
-          <strong>Wavumbuzi Entrepreneurship</strong>
-          <p style="font-size: 0.8rem;">Top Tier Innovation Award</p>
-      </div>
-      <div class="project-card" style="padding: 15px;">
-          <strong>Google AI Professional</strong>
-          <p style="font-size: 0.8rem;">Specialization in Data Analysis</p>
-      </div>
-      <div class="project-card" style="padding: 15px;">
-          <strong>RCA Hackathon Finalist</strong>
-          <p style="font-size: 0.8rem;">Social Impact Track Winner</p>
-      </div>
-      <div class="project-card" style="padding: 15px;">
-          <strong>Cisco Networking Academy</strong>
-          <p style="font-size: 0.8rem;">IT Essentials & Cybersecurity</p>
-      </div>
-  </div>
-</div>
 
 </div>
 
-<div class="footer">
-© 2026 Kaneza Michèle-Phœnix • Kigali, Rwanda<br>
-<a href="mailto:kamichelephoenix@gmail.com" style="color:var(--accent);text-decoration:none;font-weight: 800; font-size: 1rem; margin-top: 10px; display: inline-block;">
-kamichelephoenix@gmail.com
-</a>
-</div>
+<p style="text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.7rem; letter-spacing: 1px;">
+    &copy; 2026 KANEZA MICHÈLE-PHŒNIX • KIGALI, RWANDA
+</p>
 
 <script>
-// Reveal Animation on Scroll
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting) e.target.classList.add('show');
   });
 },{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-// Live Clock for Rwanda
-function updateClock() {
-    const options = { timeZone: 'Africa/Kigali', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-    const now = new Intl.DateTimeFormat('en-GB', options).format(new Date());
-    document.getElementById('clock').innerText = now;
-}
-setInterval(updateClock, 1000);
-updateClock();
 </script>
 
 </body>
