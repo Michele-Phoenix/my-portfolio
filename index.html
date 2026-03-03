@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaneza Michèle-Phœnix | AI Developer</title>
+<title>Kaneza Michèle-Phœnix | AI Developer & Researcher</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,6 +26,7 @@ body{
   background:var(--bg);
   color:var(--text);
   padding:40px 20px;
+  overflow-x: hidden;
 }
 
 .container {
@@ -33,27 +34,28 @@ body{
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
+/* TILE SYSTEM */
 .tile{
   background:var(--tile);
   border:1px solid var(--border);
   border-radius:32px;
   padding:35px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   position:relative;
   overflow:hidden;
-  width: 100%; /* Ensures no section is on the side */
+  width: 100%;
 }
 
 .tile:hover{
   border-color:var(--accent);
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* CENTERED HEADER SECTION */
+/* CENTERED HEADER */
 .header-section {
     text-align: center;
     display: flex;
@@ -83,7 +85,7 @@ body{
 h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1; margin: 10px 0; }
 h2 { font-size: .75rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700; }
 h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
-p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
+p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
 
 /* CONTACT BAR */
 .contact-bar {
@@ -96,46 +98,50 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .contact-item { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
 .contact-item:hover { color: var(--accent); }
 
-/* GRID ELEMENTS FOR INTERNAL CONTENT */
+/* CONTENT GRID */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
 
-/* PROGRESS BARS */
-.skill-item { margin-bottom: 15px; }
-.skill-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; }
-.progress-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--accent); width: 0; transition: 1.5s ease-in-out; }
+/* SKILLS TAGS */
+.skill-group h3 { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.s-tag { background: var(--glass); border: 1px solid var(--border); padding: 6px 12px; border-radius: 10px; font-size: 0.8rem; transition: 0.3s; }
+.s-tag:hover { background: var(--accent); color: #000; transform: scale(1.05); }
 
-/* TECH ICONS */
-.tech-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.8rem;
-    margin-top: 15px;
+/* REVEAL ON SCROLL (UP AND DOWN) */
+.reveal { 
+    opacity: 0; 
+    transform: translateY(50px) scale(0.95); 
+    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+.reveal.active { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+}
+
+/* RECT / REACT ICON */
+.react-spin {
+    animation: fa-spin 10s infinite linear;
+    color: #61DAFB;
+}
+
+.repo-link {
     color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
 }
 
-/* REVEAL ON SCROLL */
-.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
-.reveal.show { opacity: 1; transform: translateY(0); }
-.reveal.show .progress-fill { width: var(--target-width); }
+.repo-link:hover { text-decoration: underline; }
 
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  background: var(--accent);
-  color: #000;
-  padding: 12px 28px;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 800;
-  transition: 0.3s;
-}
 </style>
 </head>
 
@@ -147,116 +153,138 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
     <div class="pic-box">
         <img src="profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/300x300?text=KMP'">
     </div>
-    <h2>AI Developer & Researcher</h2>
+    <h2>AI Developer • Researcher</h2>
     <h1>Kaneza Michèle-Phœnix</h1>
-    <p style="max-width: 650px;">Software Development student at <strong>Rwanda Coding Academy</strong>. I build intelligent systems with a focus on Healthcare innovation and African digital growth.</p>
+    <p style="max-width: 650px;">Engineering the future through code and data at <strong>Rwanda Coding Academy</strong>.</p>
     
     <div class="contact-bar">
         <a href="mailto:kamichelephoenix@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
         <a href="tel:+250788888888" class="contact-item"><i class="fas fa-phone"></i> +250 788 888 888</a>
     </div>
 
-    <div class="tech-icons">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fab fa-js" title="JavaScript"></i>
-        <i class="fas fa-database" title="SQL"></i>
-        <i class="fab fa-react" title="React"></i>
+    <div style="display: flex; gap: 20px; margin-top: 15px; font-size: 1.8rem;">
+        <i class="fab fa-react react-spin" title="React.js"></i>
+        <i class="fab fa-python" style="color:#3776AB" title="Python"></i>
+        <i class="fab fa-js" style="color:#F7DF1E" title="JavaScript"></i>
         <i class="fab fa-github" title="GitHub"></i>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Research Focus</h2>
-    <div class="content-grid">
-        <div>
-            <h3>Predictive Health AI</h3>
-            <p>Developing neural network models to assist in the early detection of diseases within resource-limited clinical environments.</p>
-        </div>
-        <div>
-            <h3>Natural Hazards Detection</h3>
-            <p>Researching sensor-based AI alerts for floods and environmental risks to enhance community disaster preparedness.</p>
-        </div>
-    </div>
+    <h2>Professional Summary</h2>
+    <p>
+        I am a dedicated Computer Science and AI student at Rwanda Coding Academy, driven by a deep passion for social impact and healthcare transformation. Outside of the terminal, I am an avid <strong>reader</strong> and <strong>writer</strong>, often exploring the intersection of ethics and technology. I thrive on <strong>making research</strong> to solve real-world problems, believing that the best solutions come from a curious mind and a collaborative spirit.
+    </p>
   </div>
 
   <div class="tile reveal">
-    <h2>Global Communication</h2>
-    <p style="margin-bottom: 20px;">Proficiency in multiple languages allows for seamless collaboration in international tech environments.</p>
+    <h2>Featured Codebases</h2>
     <div class="content-grid">
-        <div class="skill-item">
-            <div class="skill-label"><strong>Kinyarwanda</strong><span>Native</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="--target-width: 100%;"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-label"><strong>English</strong><span>Fluent / Academic</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="--target-width: 92%;"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-label"><strong>French</strong><span>Professional</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="--target-width: 78%;"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-label"><strong>Spanish</strong><span>Conversational</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="--target-width: 45%;"></div></div>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Active Portfolio</h2>
-    <div class="content-grid">
-        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px;">
+        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--border);">
             <h3>RFID Top-Up System</h3>
-            <p>A secure digital payment ecosystem built for campus balance management.</p>
+            <p style="font-size: 0.9rem;">Comprehensive balance management and payment security platform.</p>
+            <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" class="repo-link" target="_blank">
+                <i class="fab fa-github"></i> View Repository
+            </a>
         </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px;">
-            <h3>RCA Camp Platform</h3>
-            <p>Full-stack web portal managing student logistics and camp information.</p>
+        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--border);">
+            <h3>RCA Camp Website</h3>
+            <p style="font-size: 0.9rem;">A responsive informational hub for the RCA student orientation events.</p>
+            <a href="https://github.com/Michele-Phoenix/RCA-camp" class="repo-link" target="_blank">
+                <i class="fab fa-github"></i> View Repository
+            </a>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--border);">
+            <h3>RFID Core</h3>
+            <p style="font-size: 0.9rem;">Low-level hardware integration and data processing for RFID modules.</p>
+            <a href="https://github.com/Michele-Phoenix/RFID" class="repo-link" target="_blank">
+                <i class="fab fa-github"></i> View Repository
+            </a>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Academic Roadmap & Honors</h2>
-    <div class="content-grid">
-        <div>
-            <div class="skill-item">
-                <div class="skill-label"><strong>Software Engineering</strong><span>95%</span></div>
-                <div class="progress-bg"><div class="progress-fill" style="--target-width: 95%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-label"><strong>Artificial Intelligence</strong><span>88%</span></div>
-                <div class="progress-bg"><div class="progress-fill" style="--target-width: 88%;"></div></div>
+    <h2>Technical Ecosystem</h2>
+    <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="skill-group">
+            <h3>Development</h3>
+            <div class="skill-tags">
+                <div class="s-tag">React.js</div>
+                <div class="s-tag">Python</div>
+                <div class="s-tag">JavaScript</div>
+                <div class="s-tag">Tailwind CSS</div>
+                <div class="s-tag">Next.js</div>
             </div>
         </div>
+        <div class="skill-group">
+            <h3>Systems & AI</h3>
+            <div class="skill-tags">
+                <div class="s-tag">Machine Learning</div>
+                <div class="s-tag">IoT</div>
+                <div class="s-tag">PostgreSQL</div>
+                <div class="s-tag">Embedded C</div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Leadership & Extracurriculars</h2>
+    <div class="content-grid">
         <div>
-            <p>• Wavumbuzi Innovation Challenge Finalist</p>
-            <p>• Google AI Professional Certificate</p>
-            <p>• RCA Hackathon 3rd Edition Participant</p>
+            <h3 style="color: var(--accent); font-size: 1.1rem;">RCA Tech Community</h3>
+            <p style="font-size: 0.95rem;">Active contributor to peer-mentorship and coding workshops, helping juniors master web fundamentals.</p>
+        </div>
+        <div>
+            <h3 style="color: var(--accent); font-size: 1.1rem;">Innovation Labs</h3>
+            <p style="font-size: 0.95rem;">Lead researcher on local hazard detection prototypes using MicroPython and distributed sensors.</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Education & Honors</h2>
+    <div class="content-grid">
+        <div>
+            <h3 style="font-size: 1.1rem; color: var(--accent);">Rwanda Coding Academy</h3>
+            <p style="font-size: 0.9rem;">Diploma in Software Development (2024—Present)</p>
+            <p style="font-size: 0.85rem; margin-top: 8px;">Focus: AI Fundamentals, Data Structures, and Applied Mathematics.</p>
+        </div>
+        <div>
+            <p>• Wavumbuzi Innovation Finalist</p>
+            <p>• Google AI Professional Cert</p>
+            <p>• RCA Hackathon Contributor</p>
         </div>
     </div>
   </div>
 
 </div>
 
-<p style="text-align: center; margin: 50px 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 1px;">
+<p style="text-align: center; margin: 60px 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 1px;">
     &copy; 2026 KANEZA MICHÈLE-PHŒNIX • NYABIHU, RWANDA
 </p>
 
 <script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) {
-        e.target.classList.add('show');
-        // Trigger the progress bars inside this tile
-        const bars = e.target.querySelectorAll('.progress-fill');
-        bars.forEach(bar => {
-            bar.style.width = bar.style.getPropertyValue('--target-width');
-        });
+    // Enhanced Scroll Reveal (Works on Scroll UP and DOWN)
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100; // Trigger distance
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            } else {
+                reveals[i].classList.remove("active");
+            }
+        }
     }
-  });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    window.addEventListener("scroll", reveal);
+    // Trigger on load
+    reveal();
 </script>
 
 </body>
