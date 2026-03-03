@@ -26,7 +26,6 @@ body{
   background:var(--bg);
   color:var(--text);
   padding:40px 20px;
-  overflow-x: hidden;
 }
 
 .container {
@@ -34,7 +33,7 @@ body{
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 /* TILE SYSTEM */
@@ -43,7 +42,7 @@ body{
   border:1px solid var(--border);
   border-radius:32px;
   padding:35px;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   position:relative;
   overflow:hidden;
   width: 100%;
@@ -51,8 +50,8 @@ body{
 
 .tile:hover{
   border-color:var(--accent);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
 /* CENTERED HEADER */
@@ -85,7 +84,7 @@ body{
 h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1; margin: 10px 0; }
 h2 { font-size: .75rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700; }
 h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
-p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 
 /* CONTACT BAR */
 .contact-bar {
@@ -101,47 +100,66 @@ p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
 /* CONTENT GRID */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
 
-/* SKILLS TAGS */
-.skill-group h3 { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.s-tag { background: var(--glass); border: 1px solid var(--border); padding: 6px 12px; border-radius: 10px; font-size: 0.8rem; transition: 0.3s; }
-.s-tag:hover { background: var(--accent); color: #000; transform: scale(1.05); }
-
-/* REVEAL ON SCROLL (UP AND DOWN) */
-.reveal { 
-    opacity: 0; 
-    transform: translateY(50px) scale(0.95); 
-    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
-}
-.reveal.active { 
-    opacity: 1; 
-    transform: translateY(0) scale(1); 
-}
-
-/* RECT / REACT ICON */
-.react-spin {
-    animation: fa-spin 10s infinite linear;
-    color: #61DAFB;
-}
-
-.repo-link {
+/* SKILLS CATEGORIES */
+.skill-group h3 {
+    font-size: 0.8rem;
     color: var(--accent);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
 }
 
-.repo-link:hover { text-decoration: underline; }
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
+.s-tag {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.s-tag:hover {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+/* PROGRESS BARS */
+.skill-item { margin-bottom: 15px; }
+.skill-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; }
+.progress-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); width: 0; transition: 1.5s ease-in-out; }
+
+/* REVEAL ON SCROLL */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
+.reveal.show { opacity: 1; transform: translateY(0); }
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: var(--accent);
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: 0.3s;
+}
 </style>
 </head>
 
@@ -153,138 +171,158 @@ p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
     <div class="pic-box">
         <img src="profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/300x300?text=KMP'">
     </div>
-    <h2>AI Developer • Researcher</h2>
+    <h2>Developer & Researcher</h2>
     <h1>Kaneza Michèle-Phœnix</h1>
-    <p style="max-width: 650px;">Engineering the future through code and data at <strong>Rwanda Coding Academy</strong>.</p>
+    <p style="max-width: 650px;">Software Development student at <strong>Rwanda Coding Academy</strong>. I engineer intelligent digital solutions for healthcare transformation and community impact.</p>
     
     <div class="contact-bar">
         <a href="mailto:kamichelephoenix@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
         <a href="tel:+250788888888" class="contact-item"><i class="fas fa-phone"></i> +250 788 888 888</a>
     </div>
 
-    <div style="display: flex; gap: 20px; margin-top: 15px; font-size: 1.8rem;">
-        <i class="fab fa-react react-spin" title="React.js"></i>
-        <i class="fab fa-python" style="color:#3776AB" title="Python"></i>
-        <i class="fab fa-js" style="color:#F7DF1E" title="JavaScript"></i>
-        <i class="fab fa-github" title="GitHub"></i>
+    <div style="display: flex; gap: 15px; margin-top: 10px;">
+        <i class="fab fa-python" style="color:var(--accent); font-size: 1.5rem;"></i>
+        <i class="fab fa-js" style="color:var(--accent); font-size: 1.5rem;"></i>
+        <i class="fas fa-database" style="color:var(--accent); font-size: 1.5rem;"></i>
+        <i class="fab fa-react" style="color:var(--accent); font-size: 1.5rem;"></i>
     </div>
   </div>
 
   <div class="tile reveal">
     <h2>Professional Summary</h2>
-    <p>
-        I am a dedicated Computer Science and AI student at Rwanda Coding Academy, driven by a deep passion for social impact and healthcare transformation. Outside of the terminal, I am an avid <strong>reader</strong> and <strong>writer</strong>, often exploring the intersection of ethics and technology. I thrive on <strong>making research</strong> to solve real-world problems, believing that the best solutions come from a curious mind and a collaborative spirit.
-    </p>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Featured Codebases</h2>
-    <div class="content-grid">
-        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--border);">
-            <h3>RFID Top-Up System</h3>
-            <p style="font-size: 0.9rem;">Comprehensive balance management and payment security platform.</p>
-            <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" class="repo-link" target="_blank">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--border);">
-            <h3>RCA Camp Website</h3>
-            <p style="font-size: 0.9rem;">A responsive informational hub for the RCA student orientation events.</p>
-            <a href="https://github.com/Michele-Phoenix/RCA-camp" class="repo-link" target="_blank">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--border);">
-            <h3>RFID Core</h3>
-            <p style="font-size: 0.9rem;">Low-level hardware integration and data processing for RFID modules.</p>
-            <a href="https://github.com/Michele-Phoenix/RFID" class="repo-link" target="_blank">
-                <i class="fab fa-github"></i> View Repository
-            </a>
-        </div>
-    </div>
+    <p>Dedicated Computer Science and AI student at Rwanda Coding Academy. Driven by a passion for social impact and the digital transformation of healthcare systems. Committed to developing ethical AI solutions and thriving in collaborative, high-pressure environments.</p>
   </div>
 
   <div class="tile reveal">
     <h2>Technical Ecosystem</h2>
     <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        
         <div class="skill-group">
-            <h3>Development</h3>
+            <h3>Programming</h3>
             <div class="skill-tags">
-                <div class="s-tag">React.js</div>
                 <div class="s-tag">Python</div>
+                <div class="s-tag">C / C++</div>
+                <div class="s-tag">Java</div>
                 <div class="s-tag">JavaScript</div>
-                <div class="s-tag">Tailwind CSS</div>
-                <div class="s-tag">Next.js</div>
             </div>
         </div>
+
         <div class="skill-group">
-            <h3>Systems & AI</h3>
+            <h3>Web & Data</h3>
+            <div class="skill-tags">
+                <div class="s-tag">HTML/CSS</div>
+                <div class="s-tag">Tailwind</div>
+                <div class="s-tag">Next.js</div>
+                <div class="s-tag">PostgreSQL</div>
+                <div class="s-tag">MySQL</div>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <h3>Embedded & IoT</h3>
+            <div class="skill-tags">
+                <div class="s-tag">Microcontrollers</div>
+                <div class="s-tag">Electronics</div>
+                <div class="s-tag">MicroPython</div>
+                <div class="s-tag">IoT</div>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <h3>Modern Tech</h3>
             <div class="skill-tags">
                 <div class="s-tag">Machine Learning</div>
-                <div class="s-tag">IoT</div>
-                <div class="s-tag">PostgreSQL</div>
-                <div class="s-tag">Embedded C</div>
+                <div class="s-tag">Cloud Computing</div>
+                <div class="s-tag">API Development</div>
+                <div class="s-tag">Mobile Dev</div>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <h3>Tools & DevOps</h3>
+            <div class="skill-tags">
+                <div class="s-tag">Git / GitHub</div>
+                <div class="s-tag">Agile</div>
+                <div class="s-tag">CI/CD</div>
+                <div class="s-tag">Testing</div>
+                <div class="s-tag">Canva</div>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <h3>Other Skills</h3>
+            <div class="skill-tags">
+                <div class="s-tag">Problem Solving</div>
+                <div class="s-tag">Teamwork</div>
+                <div class="s-tag">Documentation</div>
+                <div class="s-tag">Debugging</div>
             </div>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Leadership & Extracurriculars</h2>
+    <h2>Technical Projects</h2>
     <div class="content-grid">
-        <div>
-            <h3 style="color: var(--accent); font-size: 1.1rem;">RCA Tech Community</h3>
-            <p style="font-size: 0.95rem;">Active contributor to peer-mentorship and coding workshops, helping juniors master web fundamentals.</p>
+        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
+            <h3>AI Prediction Model</h3>
+            <p>Developed a machine learning model to predict health outcomes using historical data sets. Conducted full-cycle data preprocessing, model training, and evaluation.</p>
         </div>
-        <div>
-            <h3 style="color: var(--accent); font-size: 1.1rem;">Innovation Labs</h3>
-            <p style="font-size: 0.95rem;">Lead researcher on local hazard detection prototypes using MicroPython and distributed sensors.</p>
+        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
+            <h3>Health Data Analysis</h3>
+            <p>Analyzed complex health datasets to visualize disease occurrence trends. Utilized Python for data cleaning and processing of structured information.</p>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Education & Honors</h2>
+    <h2>Global Communication</h2>
+    <div class="content-grid">
+        <div class="skill-item">
+            <div class="skill-label"><strong>Kinyarwanda</strong><span>Native</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 100%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-label"><strong>English</strong><span>Fluent</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 92%;"></div></div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-label"><strong>French</strong><span>Proficient</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Education & Achievements</h2>
     <div class="content-grid">
         <div>
-            <h3 style="font-size: 1.1rem; color: var(--accent);">Rwanda Coding Academy</h3>
-            <p style="font-size: 0.9rem;">Diploma in Software Development (2024—Present)</p>
-            <p style="font-size: 0.85rem; margin-top: 8px;">Focus: AI Fundamentals, Data Structures, and Applied Mathematics.</p>
-        </div>
-        <div>
-            <p>• Wavumbuzi Innovation Finalist</p>
-            <p>• Google AI Professional Cert</p>
-            <p>• RCA Hackathon Contributor</p>
+            <h3 style="font-size: 1.1rem; color: var(--accent);">Rwanda Coding Academy (RCA)</h3>
+            <p style="font-size: 0.9rem;">Diploma / Advanced Level in Software Development (2024—Present)</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">Advanced Coursework: Python, AI Fundamentals, Data Structures & Algorithms, Database Systems (SQL), and Applied Mathematics.</p>
         </div>
     </div>
   </div>
 
 </div>
 
-<p style="text-align: center; margin: 60px 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 1px;">
+<p style="text-align: center; margin: 50px 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 1px;">
     &copy; 2026 KANEZA MICHÈLE-PHŒNIX • NYABIHU, RWANDA
 </p>
 
 <script>
-    // Enhanced Scroll Reveal (Works on Scroll UP and DOWN)
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 100; // Trigger distance
-
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            } else {
-                reveals[i].classList.remove("active");
-            }
-        }
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) {
+        e.target.classList.add('show');
+        const bars = e.target.querySelectorAll('.progress-fill');
+        bars.forEach(bar => {
+            bar.style.width = bar.style.width; 
+        });
     }
-
-    window.addEventListener("scroll", reveal);
-    // Trigger on load
-    reveal();
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
 </body>
