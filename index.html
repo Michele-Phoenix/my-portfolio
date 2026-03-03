@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaneza Michèle-Phœnix | Developer Portfolio</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: #0a0a0c;
@@ -16,7 +18,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         @keyframes reveal {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -55,74 +57,296 @@
             border-color: var(--accent); 
             background: rgba(255,255,255,0.05);
             transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
         }
 
         .hero { grid-column: span 3; grid-row: span 2; }
         .pic-tile { grid-column: span 1; grid-row: span 1; padding: 0; overflow: hidden; }
-        .time-tile { grid-column: span 1; grid-row: span 1; align-items: center; text-align: center; }
         .wide-tile { grid-column: span 2; }
         .full-tile { grid-column: span 4; }
 
         .profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
 
-        h1 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 12px; }
-        h2 { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-        
-        /* Contact Styling */
-        .contact-details { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px; }
-        .contact-item { display: flex; align-items: center; gap: 10px; color: var(--text-main); text-decoration: none; margin-bottom: 8px; font-weight: 500; font-size: 1rem; }
-        .contact-item span { color: var(--accent); font-weight: 800; }
+        h1 { 
+            font-size: clamp(2rem, 6vw, 3.5rem); 
+            font-weight: 800; 
+            letter-spacing: -2px; 
+            line-height: 1; 
+            margin-bottom: 12px; 
+        }
 
-        .btn { display: inline-block; margin-top: 20px; background: var(--accent); color: #000; padding: 14px 28px; border-radius: 16px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        h2 { 
+            font-size: 0.75rem; 
+            color: var(--accent); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 12px; 
+        }
 
-        @media (max-width: 850px) { .bento-grid { grid-template-columns: 1fr 1fr; } .hero, .full-tile { grid-column: span 2; } }
-        @media (max-width: 500px) { .bento-grid { grid-template-columns: 1fr; } .hero, .full-tile, .wide-tile { grid-column: span 1; } }
+        /* Contact */
+        .contact-details { 
+            margin-top: 20px; 
+            border-top: 1px solid var(--border); 
+            padding-top: 20px; 
+        }
+
+        .contact-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            margin-bottom: 8px; 
+            font-weight: 500; 
+            font-size: 1rem; 
+        }
+
+        .contact-item span { 
+            color: var(--accent); 
+            font-weight: 800; 
+        }
+
+        .btn { 
+            display: inline-block; 
+            margin-top: 20px; 
+            background: var(--accent); 
+            color: #000; 
+            padding: 14px 28px; 
+            border-radius: 16px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: 0.3s; 
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Projects */
+        .project-card {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .project-title {
+            color: var(--accent);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .project-links a {
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--text-main);
+            margin-right: 12px;
+            font-weight: 600;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        /* PREMIUM RESEARCH */
+        .research-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .research-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            transition: 0.3s ease;
+        }
+
+        .research-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+            background: rgba(0,212,255,0.05);
+        }
+
+        .research-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-top: 2px;
+        }
+
+        .research-title {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .research-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .bento-grid { grid-template-columns: 1fr 1fr; }
+            .hero, .full-tile { grid-column: span 2; }
+        }
+
+        @media (max-width: 500px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .hero, .full-tile, .wide-tile { grid-column: span 1; }
+
+            .tile {
+                padding: 20px;
+                border-radius: 20px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
 <div class="bento-grid">
-    
+
+    <!-- HERO -->
     <div class="tile hero">
         <h2>Developer & Researcher</h2>
         <h1>Kaneza <br>Michèle-Phœnix</h1>
-        <p style="color: var(--text-muted);">Computer Science & AI student at <strong>Rwanda Coding Academy</strong>. Focused on social impact and Healthcare digital transformation.</p>
-        
+
+        <p style="color: var(--text-muted);">
+            Building AI-powered solutions for healthcare and social impact.
+            Computer Science student at <strong>Rwanda Coding Academy</strong>.
+        </p>
+
         <div class="contact-details">
-            <a href="mailto:kamichelephoenix@gmail.com" class="contact-item"><span>@</span> kamichelephoenix@gmail.com</a>
-            <a href="tel:+250788888888" class="contact-item"><span>#</span> +250 788 888 888</a>
+            <a href="mailto:kamichelephoenix@gmail.com" class="contact-item">
+                <span>@</span> kamichelephoenix@gmail.com
+            </a>
+            <a href="tel:+250788888888" class="contact-item">
+                <span>#</span> +250 788 888 888
+            </a>
+            <a href="https://github.com/Michele-Phoenix" target="_blank" class="contact-item">
+                <span>GH</span> github.com/Michele-Phoenix
+            </a>
         </div>
 
         <a href="mailto:kamichelephoenix@gmail.com" class="btn">Get in Touch</a>
     </div>
 
+    <!-- PROFILE PIC -->
     <div class="tile pic-tile">
-        <img src="profile.jpg" alt="Kaneza Michèle-Phœnix" class="profile-img" onerror="this.src='https://via.placeholder.com/300x300?text=KMP'">
+        <img src="profile.jpg" alt="Kaneza Michèle-Phœnix" class="profile-img"
+             onerror="this.src='https://via.placeholder.com/300x300?text=KMP'">
     </div>
 
-    <div class="tile time-tile">
-        <h2 id="greeting">...</h2>
-        <div id="clock" style="font-size: 1.4rem; font-weight: 800;">00:00:00</div>
-    </div>
-
+    <!-- PREMIUM RESEARCH -->
     <div class="tile wide-tile">
-        <h2>Featured Research</h2>
-        <div style="margin-bottom: 15px;">
-            <h3 style="font-size: 1.1rem; color: var(--accent);">AI Prediction Model</h3>
-            <p style="font-size: 0.9rem;">Predicting health outcomes using Python and historical datasets.</p>
-        </div>
-        <div>
-            <h3 style="font-size: 1.1rem; color: var(--accent);">Health Data Analysis</h3>
-            <p style="font-size: 0.9rem;">Visualizing disease trends to aid community decision-making.</p>
+        <h2>Research Focus</h2>
+
+        <div class="research-list">
+
+            <div class="research-item">
+                <div class="research-icon">🧠</div>
+                <div>
+                    <div class="research-title">AI Prediction Models</div>
+                    <div class="research-desc">
+                        Developing machine learning models to predict health outcomes
+                        using historical medical datasets.
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-icon">📊</div>
+                <div>
+                    <div class="research-title">Health Data Analytics</div>
+                    <div class="research-desc">
+                        Visualizing and analyzing disease trends to support
+                        data-driven community health decisions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-icon">🌍</div>
+                <div>
+                    <div class="research-title">Natural Hazards Detection</div>
+                    <div class="research-desc">
+                        Research on AI-powered early warning systems for floods,
+                        landslides, and other environmental risks.
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- SKILLS -->
     <div class="tile">
         <h2>Expertise</h2>
-        <p style="font-size: 0.85rem; color: var(--text-main); font-weight: 600;">Python • SQL • AI/ML • JS</p>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">EN • KN • FR • ES</p>
+        <p style="font-size: 0.85rem; font-weight: 600;">
+            Python • SQL • AI/ML • JavaScript
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+            EN • KN • FR • ES
+        </p>
     </div>
 
+    <!-- PROJECTS -->
+    <div class="tile wide-tile">
+        <h2>Projects</h2>
+
+        <div class="project-card">
+            <h3 class="project-title">Tap & Pay System</h3>
+            <p class="project-desc">
+                Contactless payment platform using ESP8266, Node.js and MongoDB.
+            </p>
+            <div class="project-links">
+                <a href="http://157.173.101.159:8245" target="_blank">Live Demo</a>
+                <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">RFID Top-Up System</h3>
+            <p class="project-desc">
+                Smart RFID-based top-up and transaction management system with web dashboard.
+            </p>
+            <div class="project-links">
+                <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">RCA Camp Website</h3>
+            <p class="project-desc">
+                Responsive website for RCA camp activities featuring modern UI layout.
+            </p>
+            <div class="project-links">
+                <a href="https://github.com/Michele-Phoenix/RCA-camp" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION -->
     <div class="tile full-tile">
         <h2>Education</h2>
         <h3 style="font-size: 1.2rem;">Rwanda Coding Academy</h3>
@@ -130,21 +354,6 @@
     </div>
 
 </div>
-
-<script>
-    function updateHeader() {
-        const now = new Date();
-        const timeStr = now.toLocaleTimeString('en-GB', { timeZone: 'Africa/Kigali' });
-        document.getElementById('clock').innerText = timeStr;
-        const hour = now.getHours();
-        let greet = "Good Evening";
-        if (hour < 12) greet = "Good Morning";
-        else if (hour < 18) greet = "Good Afternoon";
-        document.getElementById('greeting').innerText = greet;
-    }
-    setInterval(updateHeader, 1000);
-    updateHeader();
-</script>
 
 </body>
 </html>
