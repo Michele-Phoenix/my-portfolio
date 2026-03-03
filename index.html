@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaneza Michèle-Phœnix | AI Developer & Researcher</title>
+<title>Kaneza Michèle-Phœnix | AI Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,7 +36,6 @@ body{
   gap: 20px;
 }
 
-/* TILE SYSTEM */
 .tile{
   background:var(--tile);
   border:1px solid var(--border);
@@ -45,7 +44,7 @@ body{
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   position:relative;
   overflow:hidden;
-  width: 100%;
+  width: 100%; /* Ensures no section is on the side */
 }
 
 .tile:hover{
@@ -54,7 +53,7 @@ body{
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-/* CENTERED HEADER */
+/* CENTERED HEADER SECTION */
 .header-section {
     text-align: center;
     display: flex;
@@ -97,46 +96,12 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .contact-item { color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
 .contact-item:hover { color: var(--accent); }
 
-/* CONTENT GRID */
+/* GRID ELEMENTS FOR INTERNAL CONTENT */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin-top: 20px;
-}
-
-/* SKILLS CATEGORIES */
-.skill-group h3 {
-    font-size: 0.8rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 5px;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.s-tag {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 0.8rem;
-    color: var(--text);
-    transition: 0.3s;
-}
-
-.s-tag:hover {
-    background: var(--accent);
-    color: #000;
-    border-color: var(--accent);
-    transform: scale(1.05);
 }
 
 /* PROGRESS BARS */
@@ -145,9 +110,20 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .progress-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); width: 0; transition: 1.5s ease-in-out; }
 
+/* TECH ICONS */
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.8rem;
+    margin-top: 15px;
+    color: var(--accent);
+}
+
 /* REVEAL ON SCROLL */
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
 .reveal.show { opacity: 1; transform: translateY(0); }
+.reveal.show .progress-fill { width: var(--target-width); }
 
 .btn {
   display: inline-block;
@@ -171,149 +147,92 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
     <div class="pic-box">
         <img src="profile.jpg" class="profile-img" onerror="this.src='https://via.placeholder.com/300x300?text=KMP'">
     </div>
-    <h2>Developer & Researcher</h2>
+    <h2>AI Developer & Researcher</h2>
     <h1>Kaneza Michèle-Phœnix</h1>
-    <p style="max-width: 650px;">Software Development student at <strong>Rwanda Coding Academy</strong>. I engineer intelligent digital solutions for healthcare transformation and community impact.</p>
+    <p style="max-width: 650px;">Software Development student at <strong>Rwanda Coding Academy</strong>. I build intelligent systems with a focus on Healthcare innovation and African digital growth.</p>
     
     <div class="contact-bar">
         <a href="mailto:kamichelephoenix@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
         <a href="tel:+250788888888" class="contact-item"><i class="fas fa-phone"></i> +250 788 888 888</a>
     </div>
 
-    <div style="display: flex; gap: 15px; margin-top: 10px;">
-        <i class="fab fa-python" style="color:var(--accent); font-size: 1.5rem;"></i>
-        <i class="fab fa-js" style="color:var(--accent); font-size: 1.5rem;"></i>
-        <i class="fas fa-database" style="color:var(--accent); font-size: 1.5rem;"></i>
-        <i class="fab fa-react" style="color:var(--accent); font-size: 1.5rem;"></i>
+    <div class="tech-icons">
+        <i class="fab fa-python" title="Python"></i>
+        <i class="fab fa-js" title="JavaScript"></i>
+        <i class="fas fa-database" title="SQL"></i>
+        <i class="fab fa-react" title="React"></i>
+        <i class="fab fa-github" title="GitHub"></i>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Professional Summary</h2>
-    <p>Dedicated Computer Science and AI student at Rwanda Coding Academy. Driven by a passion for social impact and the digital transformation of healthcare systems. Committed to developing ethical AI solutions and thriving in collaborative, high-pressure environments.</p>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Technical Ecosystem</h2>
-    <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        
-        <div class="skill-group">
-            <h3>Programming</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Python</div>
-                <div class="s-tag">C / C++</div>
-                <div class="s-tag">Java</div>
-                <div class="s-tag">JavaScript</div>
-            </div>
-        </div>
-
-        <div class="skill-group">
-            <h3>Web & Data</h3>
-            <div class="skill-tags">
-                <div class="s-tag">HTML/CSS</div>
-                <div class="s-tag">Tailwind</div>
-                <div class="s-tag">Next.js</div>
-                <div class="s-tag">PostgreSQL</div>
-                <div class="s-tag">MySQL</div>
-            </div>
-        </div>
-
-        <div class="skill-group">
-            <h3>Embedded & IoT</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Microcontrollers</div>
-                <div class="s-tag">Electronics</div>
-                <div class="s-tag">MicroPython</div>
-                <div class="s-tag">IoT</div>
-            </div>
-        </div>
-
-        <div class="skill-group">
-            <h3>Modern Tech</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Machine Learning</div>
-                <div class="s-tag">Cloud Computing</div>
-                <div class="s-tag">API Development</div>
-                <div class="s-tag">Mobile Dev</div>
-            </div>
-        </div>
-
-        <div class="skill-group">
-            <h3>Tools & DevOps</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Git / GitHub</div>
-                <div class="s-tag">Agile</div>
-                <div class="s-tag">CI/CD</div>
-                <div class="s-tag">Testing</div>
-                <div class="s-tag">Canva</div>
-            </div>
-        </div>
-
-        <div class="skill-group">
-            <h3>Other Skills</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Problem Solving</div>
-                <div class="s-tag">Teamwork</div>
-                <div class="s-tag">Documentation</div>
-                <div class="s-tag">Debugging</div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Technical Projects</h2>
+    <h2>Research Focus</h2>
     <div class="content-grid">
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>AI Prediction Model</h3>
-            <p>Developed a machine learning model to predict health outcomes using historical data sets. Conducted full-cycle data preprocessing, model training, and evaluation.</p>
+        <div>
+            <h3>Predictive Health AI</h3>
+            <p>Developing neural network models to assist in the early detection of diseases within resource-limited clinical environments.</p>
         </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>Health Data Analysis</h3>
-            <p>Analyzed complex health datasets to visualize disease occurrence trends. Utilized Python for data cleaning and processing of structured information.</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>RFID Top-Up System</h3>
-            <p>A secure digital payment platform built for hardware-integrated campus balance management.</p>
+        <div>
+            <h3>Natural Hazards Detection</h3>
+            <p>Researching sensor-based AI alerts for floods and environmental risks to enhance community disaster preparedness.</p>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
     <h2>Global Communication</h2>
+    <p style="margin-bottom: 20px;">Proficiency in multiple languages allows for seamless collaboration in international tech environments.</p>
     <div class="content-grid">
         <div class="skill-item">
             <div class="skill-label"><strong>Kinyarwanda</strong><span>Native</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 100%;"></div></div>
+            <div class="progress-bg"><div class="progress-fill" style="--target-width: 100%;"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-label"><strong>English</strong><span>Fluent</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 92%;"></div></div>
+            <div class="skill-label"><strong>English</strong><span>Fluent / Academic</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="--target-width: 92%;"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-label"><strong>French</strong><span>Proficient</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+            <div class="skill-label"><strong>French</strong><span>Professional</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="--target-width: 78%;"></div></div>
         </div>
         <div class="skill-item">
             <div class="skill-label"><strong>Spanish</strong><span>Conversational</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 45%;"></div></div>
+            <div class="progress-bg"><div class="progress-fill" style="--target-width: 45%;"></div></div>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Education & Achievements</h2>
+    <h2>Active Portfolio</h2>
+    <div class="content-grid">
+        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px;">
+            <h3>RFID Top-Up System</h3>
+            <p>A secure digital payment ecosystem built for campus balance management.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px;">
+            <h3>RCA Camp Platform</h3>
+            <p>Full-stack web portal managing student logistics and camp information.</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Academic Roadmap & Honors</h2>
     <div class="content-grid">
         <div>
-            <h3 style="font-size: 1.1rem; color: var(--accent);">Rwanda Coding Academy</h3>
-            <p style="font-size: 0.9rem;">Diploma in Software Development (2024—Present)</p>
-            <p style="font-size: 0.8rem; margin-top: 5px;">Advanced Coursework: Python, AI Fundamentals, Data Structures, Database Systems (SQL), and Applied Mathematics.</p>
+            <div class="skill-item">
+                <div class="skill-label"><strong>Software Engineering</strong><span>95%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="--target-width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><strong>Artificial Intelligence</strong><span>88%</span></div>
+                <div class="progress-bg"><div class="progress-fill" style="--target-width: 88%;"></div></div>
+            </div>
         </div>
         <div>
             <p>• Wavumbuzi Innovation Challenge Finalist</p>
             <p>• Google AI Professional Certificate</p>
             <p>• RCA Hackathon 3rd Edition Participant</p>
-            <p>• Python for Data Science Specialist</p>
         </div>
     </div>
   </div>
@@ -329,9 +248,10 @@ const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting) {
         e.target.classList.add('show');
+        // Trigger the progress bars inside this tile
         const bars = e.target.querySelectorAll('.progress-fill');
         bars.forEach(bar => {
-            bar.style.width = bar.style.width; 
+            bar.style.width = bar.style.getPropertyValue('--target-width');
         });
     }
   });
