@@ -145,7 +145,7 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .progress-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); width: 0; transition: 1.5s ease-in-out; }
 
-/* REVEAL ON SCROLL (TRANSITIONS) */
+/* REVEAL ON SCROLL */
 .reveal { 
     opacity: 0; 
     transform: translateY(40px); 
@@ -154,15 +154,6 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .reveal.show { 
     opacity: 1; 
     transform: translateY(0); 
-}
-
-/* REACT ICON ANIMATION */
-.fa-react {
-    animation: rotate-react 15s linear infinite;
-}
-@keyframes rotate-react {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 .repo-link {
@@ -187,11 +178,6 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
     border-radius: 15px;
     border: 1px solid var(--border);
     margin-bottom: 10px;
-    transition: 0.3s;
-}
-.cert-item:hover {
-    background: rgba(0, 212, 255, 0.05);
-    border-color: var(--accent);
 }
 .cert-icon {
     font-size: 1.5rem;
@@ -220,206 +206,4 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
         <a href="tel:+250788888888" class="contact-item"><i class="fas fa-phone"></i> +250 788 888 888</a>
     </div>
 
-    <div style="display: flex; gap: 15px; margin-top: 10px;">
-        <i class="fab fa-python" style="color:var(--accent); font-size: 1.5rem;" title="Python"></i>
-        <i class="fab fa-js" style="color:var(--accent); font-size: 1.5rem;" title="JavaScript"></i>
-        <i class="fas fa-database" style="color:var(--accent); font-size: 1.5rem;" title="SQL"></i>
-        <i class="fab fa-react" style="color:var(--accent); font-size: 1.5rem;" title="React"></i>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Professional Summary</h2>
-    <p>Dedicated Computer Science and AI student at Rwanda Coding Academy. Driven by a passion for social impact and the digital transformation of healthcare systems. Committed to developing ethical AI solutions and thriving in collaborative, high-pressure environments.</p>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Personal Spotlight</h2>
-    <p>Beyond the codebase, I am fueled by a deep curiosity about the world. I am an avid <strong>reader</strong> and <strong>writer</strong>, often documenting my journey through technology and logic. My favorite challenge is <strong>making research</strong>—diving deep into data to uncover insights that drive meaningful innovation.</p>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Technical Ecosystem</h2>
-    <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        <div class="skill-group">
-            <h3>Programming</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Python</div>
-                <div class="s-tag">C / C++</div>
-                <div class="s-tag">Java</div>
-                <div class="s-tag">JavaScript</div>
-            </div>
-        </div>
-        <div class="skill-group">
-            <h3>Web & Data</h3>
-            <div class="skill-tags">
-                <div class="s-tag">HTML/CSS</div>
-                <div class="s-tag">Tailwind</div>
-                <div class="s-tag">Next.js</div>
-                <div class="s-tag">PostgreSQL</div>
-                <div class="s-tag">MySQL</div>
-                <div class="s-tag">React</div>
-            </div>
-        </div>
-        <div class="skill-group">
-            <h3>Modern Tech</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Machine Learning</div>
-                <div class="s-tag">Cloud Computing</div>
-                <div class="s-tag">API Development</div>
-                <div class="s-tag">IoT</div>
-            </div>
-        </div>
-        <div class="skill-group">
-            <h3>Other Skills</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Problem Solving</div>
-                <div class="s-tag">Teamwork</div>
-                <div class="s-tag">Documentation</div>
-                <div class="s-tag">Git / GitHub</div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Technical Projects & Research</h2>
-    <div class="content-grid">
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>AI-Based Prediction Model</h3>
-            <p>Developed a machine learning model to predict outcomes using historical data sets, including full-cycle preprocessing and evaluation.</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>Health Data Analysis</h3>
-            <p>Analyzed complex health datasets using Python to identify and visualize disease occurrence trends for public health insights.</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>RFID Top-Up System</h3>
-            <p>Comprehensive balance management system using RFID technology for secure, contactless transactions.</p>
-            <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" class="repo-link" target="_blank"><i class="fab fa-github"></i> View Repo</a>
-        </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>Web-Based Information Systems</h3>
-            <p>Engineered a data collection system using HTML/CSS/JS with a relational SQL backend to optimize data integrity.</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Core Research Interests</h2>
-    <div class="content-grid">
-        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
-            <h3 style="color: var(--accent); font-size: 1rem;">Public Health Tech</h3>
-            <p>Exploring digital tools to improve community health outcomes and disease visualization.</p>
-        </div>
-        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
-            <h3 style="color: var(--accent); font-size: 1rem;">Ethical AI</h3>
-            <p>Studying the impact of data privacy, algorithmic fairness, and transparency in machine learning.</p>
-        </div>
-        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
-            <h3 style="color: var(--accent); font-size: 1rem;">Social Impact</h3>
-            <p>Leveraging software development and data-driven insights for the benefit of society.</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Global Communication</h2>
-    <div class="content-grid">
-        <div class="skill-item">
-            <div class="skill-label"><strong>Kinyarwanda</strong><span>Native</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 100%;"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-label"><strong>English</strong><span>Fluent</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-label"><strong>French</strong><span>Fluent</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
-        </div>
-        <div class="skill-item">
-            <div class="skill-label"><strong>Spanish</strong><span>Conversational</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 50%;"></div></div>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Education</h2>
-    <div class="content-grid">
-        <div>
-            <h3 style="font-size: 1.1rem; color: var(--accent);">Rwanda Coding Academy (RCA)</h3>
-            <p style="font-size: 0.9rem;">Diploma / Advanced Level in Software Development (2024—Present)</p>
-            <p style="font-size: 0.8rem; margin-top: 5px;">Advanced Coursework: Python, AI Fundamentals, Data Structures & Algorithms, Database Systems (SQL), and Applied Mathematics.</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
-    <h2>Certifications & Achievements</h2>
-    <div class="content-grid">
-        <div class="cert-item">
-            <i class="fas fa-lightbulb cert-icon"></i>
-            <div>
-                <h3 style="font-size: 1rem; margin-bottom: 2px;">Wavumbuzi Entrepreneurship Certificate</h3>
-                <p style="font-size: 0.85rem;">Entrepreneurial Leadership Program</p>
-            </div>
-        </div>
-        <div class="cert-item">
-            <i class="fas fa-users cert-icon"></i>
-            <div>
-                <h3 style="font-size: 1rem; margin-bottom: 2px;">iLead Program Graduate</h3>
-                <p style="font-size: 0.85rem;">John Maxwell Leadership Foundation</p>
-            </div>
-        </div>
-        <div class="cert-item">
-            <i class="fas fa-certificate cert-icon"></i>
-            <div>
-                <h3 style="font-size: 1rem; margin-bottom: 2px;">Python Programming Proficiency</h3>
-                <p style="font-size: 0.85rem;">Rwanda Coding Academy (RCA)</p>
-            </div>
-        </div>
-        <div class="cert-item">
-            <i class="fas fa-brain cert-icon"></i>
-            <div>
-                <h3 style="font-size: 1rem; margin-bottom: 2px;">AI Fundamentals Certification</h3>
-                <p style="font-size: 0.85rem;">Rwanda Coding Academy (RCA)</p>
-            </div>
-        </div>
-        <div class="cert-item">
-            <i class="fas fa-code cert-icon"></i>
-            <div>
-                <h3 style="font-size: 1rem; margin-bottom: 2px;">Data Structures & Algorithms</h3>
-                <p style="font-size: 0.85rem;">Rwanda Coding Academy (RCA)</p>
-            </div>
-        </div>
-    </div>
-  </div>
-
-</div>
-
-<p style="text-align: center; margin: 50px 0; color: var(--muted); font-size: 0.75rem; letter-spacing: 1px;">
-    &copy; 2026 KANEZA MICHÈLE-PHŒNIX • NYABIHU, RWANDA
-</p>
-
-<script>
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) {
-        e.target.classList.add('show');
-        const bars = e.target.querySelectorAll('.progress-fill');
-        bars.forEach(bar => {
-            bar.style.width = bar.getAttribute('style').split('width: ')[1]; 
-        });
-    } else {
-        e.target.classList.remove('show');
-    }
-  });
-},{threshold: 0.1});
-
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
-
-</body>
-</html>
+    <div style="display
