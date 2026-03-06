@@ -177,6 +177,29 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 }
 .repo-link:hover { text-decoration: underline; }
 
+/* CERTIFICATE LIST STYLING */
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--glass);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+.cert-item:hover {
+    background: rgba(0, 212, 255, 0.05);
+    border-color: var(--accent);
+}
+.cert-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    width: 30px;
+    text-align: center;
+}
+
 </style>
 </head>
 
@@ -218,7 +241,6 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
   <div class="tile reveal">
     <h2>Technical Ecosystem</h2>
     <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-        
         <div class="skill-group">
             <h3>Programming</h3>
             <div class="skill-tags">
@@ -228,7 +250,6 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
                 <div class="s-tag">JavaScript</div>
             </div>
         </div>
-
         <div class="skill-group">
             <h3>Web & Data</h3>
             <div class="skill-tags">
@@ -240,67 +261,46 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
                 <div class="s-tag">React</div>
             </div>
         </div>
-
-        <div class="skill-group">
-            <h3>Embedded & IoT</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Microcontrollers</div>
-                <div class="s-tag">Electronics</div>
-                <div class="s-tag">MicroPython</div>
-                <div class="s-tag">IoT</div>
-            </div>
-        </div>
-
         <div class="skill-group">
             <h3>Modern Tech</h3>
             <div class="skill-tags">
                 <div class="s-tag">Machine Learning</div>
                 <div class="s-tag">Cloud Computing</div>
                 <div class="s-tag">API Development</div>
-                <div class="s-tag">Mobile Dev</div>
+                <div class="s-tag">IoT</div>
             </div>
         </div>
-
-        <div class="skill-group">
-            <h3>Tools & DevOps</h3>
-            <div class="skill-tags">
-                <div class="s-tag">Git / GitHub</div>
-                <div class="s-tag">Agile</div>
-                <div class="s-tag">CI/CD</div>
-                <div class="s-tag">Testing</div>
-                <div class="s-tag">Canva</div>
-            </div>
-        </div>
-
         <div class="skill-group">
             <h3>Other Skills</h3>
             <div class="skill-tags">
                 <div class="s-tag">Problem Solving</div>
                 <div class="s-tag">Teamwork</div>
                 <div class="s-tag">Documentation</div>
-                <div class="s-tag">Debugging</div>
+                <div class="s-tag">Git / GitHub</div>
             </div>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Technical Projects & Repositories</h2>
+    <h2>Technical Projects & Research</h2>
     <div class="content-grid">
         <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
+            <h3>AI-Based Prediction Model</h3>
+            <p>Developed a machine learning model to predict outcomes using historical data sets, including full-cycle preprocessing and evaluation.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
+            <h3>Health Data Analysis</h3>
+            <p>Analyzed complex health datasets using Python to identify and visualize disease occurrence trends for public health insights.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
             <h3>RFID Top-Up System</h3>
-            <p>A comprehensive balance management system utilizing RFID technology for secure transactions.</p>
+            <p>Comprehensive balance management system using RFID technology for secure, contactless transactions.</p>
             <a href="https://github.com/Michele-Phoenix/RFID-TOPUP-SYSTEM" class="repo-link" target="_blank"><i class="fab fa-github"></i> View Repo</a>
         </div>
         <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>RCA Camp Website</h3>
-            <p>Full-stack web application designed to manage and display camp-related information for RCA students.</p>
-            <a href="https://github.com/Michele-Phoenix/RCA-camp" class="repo-link" target="_blank"><i class="fab fa-github"></i> View Repo</a>
-        </div>
-        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
-            <h3>RFID Integration</h3>
-            <p>Backend logic and hardware communication protocols for RFID-based identification systems.</p>
-            <a href="https://github.com/Michele-Phoenix/RFID" class="repo-link" target="_blank"><i class="fab fa-github"></i> View Repo</a>
+            <h3>Web-Based Information Systems</h3>
+            <p>Engineered a data collection system using HTML/CSS/JS with a relational SQL backend to optimize data integrity.</p>
         </div>
     </div>
   </div>
@@ -324,20 +324,6 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
   </div>
 
   <div class="tile reveal">
-    <h2>Leadership & Extracurriculars</h2>
-    <div class="content-grid">
-        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
-            <h3 style="color: var(--accent); font-size: 1rem;">Tech Mentor @ RCA</h3>
-            <p>Assisting peers with complex programming concepts and debugging workflows.</p>
-        </div>
-        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
-            <h3 style="color: var(--accent); font-size: 1rem;">Research Lead</h3>
-            <p>Leading student-driven inquiries into ethical AI applications in local health contexts.</p>
-        </div>
-    </div>
-  </div>
-
-  <div class="tile reveal">
     <h2>Global Communication</h2>
     <div class="content-grid">
         <div class="skill-item">
@@ -346,26 +332,67 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
         </div>
         <div class="skill-item">
             <div class="skill-label"><strong>English</strong><span>Fluent</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 92%;"></div></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
         </div>
         <div class="skill-item">
-            <div class="skill-label"><strong>French</strong><span>Proficient</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+            <div class="skill-label"><strong>French</strong><span>Fluent</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 90%;"></div></div>
         </div>
         <div class="skill-item">
             <div class="skill-label"><strong>Spanish</strong><span>Conversational</span></div>
-            <div class="progress-bg"><div class="progress-fill" style="width: 45%;"></div></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 50%;"></div></div>
         </div>
     </div>
   </div>
 
   <div class="tile reveal">
-    <h2>Education & Achievements</h2>
+    <h2>Education</h2>
     <div class="content-grid">
         <div>
             <h3 style="font-size: 1.1rem; color: var(--accent);">Rwanda Coding Academy (RCA)</h3>
             <p style="font-size: 0.9rem;">Diploma / Advanced Level in Software Development (2024—Present)</p>
             <p style="font-size: 0.8rem; margin-top: 5px;">Advanced Coursework: Python, AI Fundamentals, Data Structures & Algorithms, Database Systems (SQL), and Applied Mathematics.</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Certifications & Achievements</h2>
+    <div class="content-grid">
+        <div class="cert-item">
+            <i class="fas fa-lightbulb cert-icon"></i>
+            <div>
+                <h3 style="font-size: 1rem; margin-bottom: 2px;">Wavumbuzi Entrepreneurship Certificate</h3>
+                <p style="font-size: 0.85rem;">Entrepreneurial Leadership Program</p>
+            </div>
+        </div>
+        <div class="cert-item">
+            <i class="fas fa-users cert-icon"></i>
+            <div>
+                <h3 style="font-size: 1rem; margin-bottom: 2px;">iLead Program Graduate</h3>
+                <p style="font-size: 0.85rem;">John Maxwell Leadership Foundation</p>
+            </div>
+        </div>
+        <div class="cert-item">
+            <i class="fas fa-certificate cert-icon"></i>
+            <div>
+                <h3 style="font-size: 1rem; margin-bottom: 2px;">Python Programming Proficiency</h3>
+                <p style="font-size: 0.85rem;">Rwanda Coding Academy (RCA)</p>
+            </div>
+        </div>
+        <div class="cert-item">
+            <i class="fas fa-brain cert-icon"></i>
+            <div>
+                <h3 style="font-size: 1rem; margin-bottom: 2px;">AI Fundamentals Certification</h3>
+                <p style="font-size: 0.85rem;">Rwanda Coding Academy (RCA)</p>
+            </div>
+        </div>
+        <div class="cert-item">
+            <i class="fas fa-code cert-icon"></i>
+            <div>
+                <h3 style="font-size: 1rem; margin-bottom: 2px;">Data Structures & Algorithms</h3>
+                <p style="font-size: 0.85rem;">Rwanda Coding Academy (RCA)</p>
+            </div>
         </div>
     </div>
   </div>
@@ -396,4 +423,3 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 </body>
 </html>
-
