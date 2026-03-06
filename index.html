@@ -298,9 +298,31 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
             <a href="https://github.com/Michele-Phoenix/RCA-camp" class="repo-link" target="_blank"><i class="fab fa-github"></i> View Repo</a>
         </div>
         <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
+            <h3>Web-Based Information Systems</h3>
+            <p>Engineered a data collection system using HTML, CSS, and JS with a relational SQL backend to optimize user experience and data integrity.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.02); padding: 25px; border-radius: 20px; border: 1px solid var(--border);">
             <h3>RFID Integration</h3>
             <p>Backend logic and hardware communication protocols for RFID-based identification systems.</p>
             <a href="https://github.com/Michele-Phoenix/RFID" class="repo-link" target="_blank"><i class="fab fa-github"></i> View Repo</a>
+        </div>
+    </div>
+  </div>
+
+  <div class="tile reveal">
+    <h2>Core Research Interests</h2>
+    <div class="content-grid">
+        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
+            <h3 style="color: var(--accent); font-size: 1rem;">Public Health Tech</h3>
+            <p>Exploring digital tools to improve community health outcomes and disease visualization.</p>
+        </div>
+        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
+            <h3 style="color: var(--accent); font-size: 1rem;">Ethical AI</h3>
+            <p>Studying the impact of data privacy, algorithmic fairness, and transparency in machine learning.</p>
+        </div>
+        <div style="background: var(--glass); padding: 20px; border-radius: 20px;">
+            <h3 style="color: var(--accent); font-size: 1rem;">Social Impact</h3>
+            <p>Leveraging software development and data-driven insights for the benefit of society.</p>
         </div>
     </div>
   </div>
@@ -334,6 +356,10 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
             <div class="skill-label"><strong>French</strong><span>Proficient</span></div>
             <div class="progress-bg"><div class="progress-fill" style="width: 80%;"></div></div>
         </div>
+        <div class="skill-item">
+            <div class="skill-label"><strong>Spanish</strong><span>Conversational</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width: 45%;"></div></div>
+        </div>
     </div>
   </div>
 
@@ -364,7 +390,6 @@ const observer=new IntersectionObserver(entries=>{
             bar.style.width = bar.getAttribute('style').split('width: ')[1]; 
         });
     } else {
-        // This makes the transition re-play when scrolling up
         e.target.classList.remove('show');
     }
   });
